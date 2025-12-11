@@ -5,7 +5,6 @@ const 시시로토우지 = {
     data: {
         talent: {
             gap: {
-                0: true,
                 1: true
             },
             curiosity: 1,
@@ -374,14 +373,15 @@ const 시시로토우지_아이템 = [
 
     //abilities
     {
-        name: "접근전공격",
+        name: "접근전 공격",
         type: "ability",
         data: {
             type: "공격",
             gap: "1",
+            hidden: false,
             cost: "없음",
             talent: "경제력",
-            description: "접근전. 공격이 성공하면 대상에게 접근전대미지를 1점 가할 수 있다."
+            description: "접근전. 공격이 성공하면 대상에게 접근전대미지를 1점 가할 수 있다.(기본78)"
         }
     },
     {
@@ -389,10 +389,11 @@ const 시시로토우지_아이템 = [
         type: "ability",
         data: {
             type: "공격",
+            hidden: false,
             gap: "2",
             cost: "없음",
             talent: "용병술",
-            description: "사격전. 공격이 성공하면 대상에게 사격전대미지를 1점 가할 수 있다."
+            description: "사격전. 공격이 성공하면 대상에게 사격전대미지를 1점 가할 수 있다.()"
         }
     },
     {
@@ -401,9 +402,10 @@ const 시시로토우지_아이템 = [
         data: {
             type: "공격",
             gap: "1",
+            hidden: false,
             cost: "1",
             talent: "불의 술",
-            description: "사격전. 공격이 성공하면 대상에게 사격전대미지를 2점 가할 수 있다."
+            description: "사격전. 공격이 성공하면 대상에게 사격전대미지를 2점 가할 수 있다.()"
         }
     },
     {
@@ -412,9 +414,10 @@ const 시시로토우지_아이템 = [
         data: {
             type: "서포트",
             gap: "없음",
+            hidden: false,
             cost: "1",
             talent: "원하는 기술",
-            description: "자신의 명중판정 전에 사용할 수 있다. 지정특기 판정에 성공하면 그 공격에 의한 대미지를 1점 상승시킬 수 있다. 이 효과로 인해 상승하는 대미지는 각 공격인법 첫머리에 적힌 것뿐이다."
+            description: "자신의 명중판정 전에 사용할 수 있다. 지정특기 판정에 성공하면 그 공격에 의한 대미지를 1점 상승시킬 수 있다. 이 효과로 인해 상승하는 대미지는 각 공격인법 첫머리에 적힌 것뿐이다.()"
         }
     },
     {
@@ -423,9 +426,10 @@ const 시시로토우지_아이템 = [
         data: {
             type: "장비",
             gap: "없음",
+            hidden: false,
             cost: "없음",
             talent: "없음",
-            description: "자신이 행위판정에서 어떤 특기로 대용판정을 할 경우, 「기술」 분야와 「요술」 분야가 이어져있는 것으로 취급한다. 예를 들어, 갭이 메워져있다면 《봉인술》을 《격납술》로 대용할 때 목표치는 6이 된다."
+            description: "자신이 행위판정에서 어떤 특기로 대용판정을 할 경우, 「기술」 분야와 「요술」 분야가 이어져있는 것으로 취급한다. 예를 들어, 갭이 메워져있다면 《봉인술》을 《격납술》로 대용할 때 목표치는 6이 된다.()"
         }
     },
     //backgrounds
@@ -434,6 +438,7 @@ const 시시로토우지_아이템 = [
         type: "background",
         data: {
             type: "pros",
+            exp: "",
             description: "배경의 장점"
         }
     },
@@ -442,52 +447,11 @@ const 시시로토우지_아이템 = [
         type: "background",
         data: {
             type: "cons",
+            exp: "",
             description: "배경의 단점"
         }
     },
     //tool 없음
-    {
-        name: "병량환",
-        type: "item",
-        data: {
-            quantity: "1"
-        }
-    },
-    {
-        name: "신통환",
-        type: "item",
-        data: {
-            quantity: "2"
-        }
-    },
-    {
-        name: "둔갑부",
-        type: "item",
-        data: {
-            quantity: "3"
-        }
-    },
-    {
-        name: "특수닌구",
-        type: "item",
-        data: {
-            quantity: "4"
-        }
-    },
-    {
-        name: "특수닌구",
-        type: "item",
-        data: {
-            quantity: "5"
-        }
-    },
-    {
-        name: "특수닌구",
-        type: "item",
-        data: {
-            quantity: "6"
-        }
-    }
 ]
 
 /**@type {ShinobiActorData} */
@@ -850,9 +814,7 @@ const 후유가레이나 = {
             age: "17",
             agency: "하구레모노",
             belief: "아",
-            biography: `매사 긍정적이고 쾌활한 여고생.
-
-밝은 모습의 뒷면에는 언제 닌자에게 습격당해 죽을지도 모른다는 불안이 항상 자리하고 있다.`,
+            biography: `매사 긍정적이고 쾌활한 여고생.<br><br>밝은 모습의 뒷면에는 언제 닌자에게 습격당해 죽을지도 모른다는 불안이 항상 자리하고 있다.`,
             exp: "0",
             expContent: "",
             grade: "중급닌자",
@@ -868,14 +830,15 @@ const 후유가레이나_아이템 = [
 
     //abilities
     {
-        name: "접근전공격",
+        name: "접근전 공격",
         type: "ability",
         data: {
             type: "공격",
             gap: "1",
+            hidden: false,
             cost: "없음",
             talent: "자유",
-            description: ""
+            description: "접근전 대미지를 1점 입힌다.(기본78)"
         }
     },
     {
@@ -884,20 +847,22 @@ const 후유가레이나_아이템 = [
         data: {
             type: "서포트",
             gap: "없음",
+            hidden: false,
             cost: "2",
             talent: "주법·예능·결계술",
-            description: ""
+            description: "()"
         }
     },
     {
-        name: "거리 침투",
+        name: "거리침투",
         type: "ability",
         data: {
             type: "장비",
             gap: "없음",
+            hidden: false,
             cost: "없음",
             talent: "없음",
-            description: ""
+            description: "()"
         }
     },
     {
@@ -905,10 +870,11 @@ const 후유가레이나_아이템 = [
         type: "ability",
         data: {
             type: "서포트",
+            hidden: false,
             gap: "2",
             cost: "3",
             talent: "포승술",
-            description: ""
+            description: "()"
         }
     },
     {
@@ -917,9 +883,10 @@ const 후유가레이나_아이템 = [
         data: {
             type: "장비",
             gap: "없음",
+            hidden: false,
             cost: "없음",
             talent: "없음",
-            description: ""
+            description: "()"
         }
     },
     //backgrounds
@@ -928,6 +895,7 @@ const 후유가레이나_아이템 = [
         type: "background",
         data: {
             type: "pros",
+            exp: "",
             description: "산전수전"
         }
     },
@@ -936,6 +904,7 @@ const 후유가레이나_아이템 = [
         type: "background",
         data: {
             type: "cons",
+            exp: "",
             description: "열성인자"
         }
     },
