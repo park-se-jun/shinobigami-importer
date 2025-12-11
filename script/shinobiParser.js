@@ -66,8 +66,8 @@ class AbstractParser {
     }
 }
 
-class CharacterSheetAppspotParser extends AbstractParser {
-    /**@type {CharacterSheetAppspotParser} */
+class CharacterSheetsAppspotParser extends AbstractParser {
+    /**@type {CharacterSheetsAppspotParser} */
     static instance = null;
     /**@type {CharacterSheetAppspotData} */
     _data;
@@ -75,10 +75,10 @@ class CharacterSheetAppspotParser extends AbstractParser {
 
     constructor() {
         super()
-        if (CharacterSheetAppspotParser.instance) {
-            return CharacterSheetAppspotParser.instance;
+        if (CharacterSheetsAppspotParser.instance) {
+            return CharacterSheetsAppspotParser.instance;
         }
-        CharacterSheetAppspotParser.instance = this;
+        CharacterSheetsAppspotParser.instance = this;
         return this;
     }
 
@@ -571,5 +571,5 @@ class SeerSuckerV4CsvParser extends AbstractParser {
 }
 
 
-export { AbstractParser, CharacterSheetAppspotParser as CharacterSheetsAppspotParser, SeerSuckerV4CsvParser };
+export { AbstractParser, CharacterSheetsAppspotParser, SeerSuckerV4CsvParser };
 
