@@ -1,0 +1,27 @@
+{
+  "name": "shinobigami-importer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "papaparse": "^5.5.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@types/jest": "^30.0.0",
+    "babel-jest": "^30.2.0",
+    "fvtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@^12.331.5",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0"
+  }
+}
