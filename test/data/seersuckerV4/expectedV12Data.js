@@ -10,7 +10,7 @@ const 시시로토우지 = {
             },
             curiosity: 1,
             table: [
-                [
+                [//기술
                     {
                         state: false,
                         num: 12,
@@ -67,7 +67,7 @@ const 시시로토우지 = {
                         stop: false
                     }
                 ],
-                [
+                [//체술
                     {
                         state: false,
                         num: 12,
@@ -124,7 +124,7 @@ const 시시로토우지 = {
                         stop: false
                     }
                 ],
-                [
+                [//인술
                     {
                         state: false,
                         num: 12,
@@ -176,69 +176,37 @@ const 시시로토우지 = {
                         stop: false
                     },
                     {
-                        state: true,
-                        num: 12,
-                        stop: false
-                    }
-                ],
-                [
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
-                        state: false,
-                        num: 12,
-                        stop: false
-                    },
-                    {
                         state: false,
                         num: 12,
                         stop: false
                     }
                 ],
-                [
+                [//모술
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
                     {
                         state: false,
                         num: 12,
@@ -268,6 +236,38 @@ const 시시로토우지 = {
                         state: true,
                         num: 12,
                         stop: false
+                    }
+                ],
+                [//전술
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: false,
+                        num: 12,
+                        stop: false
+                    },
+                    {
+                        state: true,
+                        num: 12,
+                        stop: false
                     },
                     {
                         state: false,
@@ -295,7 +295,7 @@ const 시시로토우지 = {
                         stop: false
                     }
                 ],
-                [
+                [//요술
                     {
                         state: false,
                         num: 12,
@@ -495,7 +495,8 @@ const 시시로토우지_아이템 = [
         system: {
             type: "크리티컬히트",
             talent: "불의 술",
-            description: `<b>강점:</b> 오의의 강점 <br>
+            description:
+                `<b>강점:</b> 오의의 강점 <br>
             <b>약점:</b> 오의의 약점 <br>
             오의의 효과`
         }
@@ -506,7 +507,8 @@ const 시시로토우지_아이템 = [
         system: {
             type: "범위공격",
             talent: "기계조작",
-            description: `<b>강점:</b> 오의2 강점 <br>
+            description:
+                `<b>강점:</b> 오의2 강점 <br>
             <b>약점:</b> 오의2 약점 <br>
             오의2 효과`
         }
@@ -517,7 +519,8 @@ const 시시로토우지_아이템 = [
         system: {
             type: "절대방어",
             talent: "물의 술",
-            description: `<b>강점:</b> 오의3 강점 <br>
+            description:
+                `<b>강점:</b> 오의3 강점 <br>
             <b>약점:</b> 오의3 약점 <br>
             오의3 효과`
         }
@@ -966,7 +969,7 @@ const 후유가레이나_아이템 = [
         }
     },
     {
-        name: "산전수전",
+        name: "열성인자",
         type: "background",
         system: {
             type: "cons",
@@ -982,7 +985,10 @@ const 후유가레이나_아이템 = [
         system: {
             type: "판정방해",
             talent: "환술",
-            description: "환술로 상처가득한 아수라의 형상을 보여주어 상대방의 주의를 흐트러트린다."
+            description:
+                `<b>강점:</b> 없음 <br>
+            <b>약점:</b> 없음 <br>
+            환술로 상처가득한 아수라의 형상을 보여주어 상대방의 주의를 흐트러트린다.`
         }
     }
 ]
