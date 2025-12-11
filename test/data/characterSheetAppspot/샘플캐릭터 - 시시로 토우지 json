@@ -1,0 +1,294 @@
+{
+    "autoresize": "1",
+    "background": [
+        {
+            "effect": "배경의 장점",
+            "name": "배경의 장점",
+            "page": null,
+            "point": null,
+            "type": "장점"
+        },
+        {
+            "effect": "배경의 단점",
+            "name": "배경의 단점",
+            "page": null,
+            "point": null,
+            "type": "단점"
+        }
+    ],
+    "base": {
+        "age": "29",
+        "belief": "흉",
+        "cover": "직장인",
+        "exp": "공적점5",
+        "expnormal": null,
+        "foe": "쿠라마신류",
+        "level": "중급닌자",
+        "memo": "여긴 백스를 적는 공간",
+        "name": "시시로 토우지",
+        "nameKana": null,
+        "player": "sj3003",
+        "race": "1",
+        "regulation": null,
+        "secretCount": null,
+        "sex": "남성",
+        "stylerule": "다른 유파의 「오의의 내용」을 수집한다",
+        "substyle": "상위",
+        "upperstyle": "a"
+    },
+    "bcdice": {
+        "check": null,
+        "fumble": null,
+        "mod": null,
+        "special": null
+    },
+    "discord": {
+        "check": null
+    },
+    "display": "0",
+    "dodontof": {
+        "color": "#000000"
+    },
+    "drToCopy": null,
+    "editlang": "kr",
+    "includeTargetSkill": null,
+    "judge": {
+        "skill": {
+            "id": null
+        }
+    },
+    "learned": [
+        {
+            "hiddenSkill": null,
+            "id": null,
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row1.name0",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row5.name0",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row8.name0",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row2.name2",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row10.name3",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row5.name4",
+            "judge": null
+        }
+    ],
+    "ninpou": [
+        {
+            "awaken": null,
+            "cost": "없음",
+            "effect": "접근전. 공격이 성공하면 대상에게 접근전대미지를 1점 가할 수 있다.\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t",
+            "name": "접근전 공격",
+            "page": "기본78",
+            "range": "1",
+            "secret": null,
+            "targetSkill": "경제력",
+            "type": "공격"
+        },
+        {
+            "awaken": null,
+            "cost": "없음",
+            "effect": "사격전. 공격이 성공하면 대상에게 사격전대미지를 1점 가할 수 있다.\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t",
+            "name": "사격전공격",
+            "page": null,
+            "range": "2",
+            "secret": null,
+            "targetSkill": "용병술",
+            "type": "공격"
+        },
+        {
+            "awaken": null,
+            "cost": "1",
+            "effect": "사격전. 공격이 성공하면 대상에게 사격전대미지를 2점 가할 수 있다.\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t",
+            "name": "폭파",
+            "page": null,
+            "range": "1",
+            "secret": null,
+            "targetSkill": "불의 술",
+            "type": "공격"
+        },
+        {
+            "awaken": null,
+            "cost": "1",
+            "effect": "자신의 명중판정 전에 사용할 수 있다. 지정특기 판정에 성공하면 그 공격에 의한 대미지를 1점 상승시킬 수 있다. 이 효과로 인해 상승하는 대미지는 각 공격인법 첫머리에 적힌 것뿐이다.\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t",
+            "name": "강타",
+            "page": null,
+            "range": "없음",
+            "secret": null,
+            "targetSkill": "원하는 기술",
+            "type": "서포트"
+        },
+        {
+            "awaken": null,
+            "cost": "없음",
+            "effect": "자신이 행위판정에서 어떤 특기로 대용판정을 할 경우, 「기술」 분야와 「요술」 분야가 이어져있는 것으로 취급한다. 예를 들어, 갭이 메워져있다면 《봉인술》을 《격납술》로 대용할 때 목표치는 6이 된다.\t\t\t\t\t\t",
+            "name": "마계공학",
+            "page": null,
+            "range": "없음",
+            "secret": null,
+            "targetSkill": "없음",
+            "type": "장비"
+        }
+    ],
+    "outline": "닌자 유파：상위 계급：중급닌자 사회적 신분：직장인 신념：흉",
+    "personalSecret": [
+        {
+            "effect": null,
+            "fake": null,
+            "name": null,
+            "notes": null,
+            "page": null
+        }
+    ],
+    "personalities": [
+        {
+            "direction": "1",
+            "emotion": "0",
+            "name": null,
+            "place": null,
+            "secret": null,
+            "specialEffect": null
+        }
+    ],
+    "scenario": {
+        "datetime": null,
+        "gamemaster": null,
+        "handout": null,
+        "mission": null,
+        "name": null,
+        "pcno": null
+    },
+    "skills": {
+        "b": null,
+        "c": null,
+        "d": null,
+        "damage": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "e": null,
+        "f": "1",
+        "fixout": null,
+        "outRow": null,
+        "row0": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row1": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row10": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row2": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row3": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row4": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row5": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row6": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row7": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row8": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row9": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        }
+    },
+    "tekey": {
+        "check": null,
+        "imagelink": null,
+        "includeinfo": null,
+        "includeurl": null,
+        "room": null
+    }
+}

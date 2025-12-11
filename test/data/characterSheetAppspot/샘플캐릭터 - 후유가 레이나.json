@@ -1,0 +1,293 @@
+{
+    "autoresize": "1",
+    "background": [
+        {
+            "effect": "산전수전",
+            "name": "산전수전",
+            "page": null,
+            "point": null,
+            "type": "장점"
+        },
+        {
+            "effect": "열성인자",
+            "name": "열성인자",
+            "page": null,
+            "point": null,
+            "type": "단점"
+        }
+    ],
+    "base": {
+        "age": "17",
+        "belief": "아",
+        "cover": "고등학생",
+        "exp": "0",
+        "expnormal": null,
+        "foe": "하스바 닌군",
+        "level": "중급닌자",
+        "memo": "매사 긍정적이고 쾌활한 여고생.\n\n밝은 모습의 뒷면에는 언제 닌자에게 습격당해 죽을지도 모른다는 불안이 항상 자리하고 있다.",
+        "name": "후유가 레이나",
+        "nameKana": null,
+        "player": "sj3003",
+        "race": "1",
+        "regulation": null,
+        "secretCount": null,
+        "sex": "여성",
+        "stylerule": "누구에게도 속박되지 않고 자신의 의지로 싸운다",
+        "substyle": "상위",
+        "upperstyle": "bc"
+    },
+    "bcdice": {
+        "check": null,
+        "fumble": null,
+        "mod": null,
+        "special": null
+    },
+    "discord": {
+        "check": null
+    },
+    "display": "0",
+    "dodontof": {
+        "color": "#000000"
+    },
+    "drToCopy": null,
+    "editlang": "kr",
+    "includeTargetSkill": null,
+    "judge": {
+        "skill": {
+            "id": null
+        }
+    },
+    "learned": [
+        {
+            "hiddenSkill": null,
+            "id": null,
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row6.name0",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row2.name2",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row6.name2",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row9.name2",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row1.name5",
+            "judge": null
+        },
+        {
+            "hiddenSkill": null,
+            "id": "skills.row6.name5",
+            "judge": null
+        }
+    ],
+    "ninpou": [
+        {
+            "awaken": null,
+            "cost": "없음",
+            "effect": "접근전. 공격이 성공하면 대상에게 접근전대미지를 1점 가할 수 있다.                                     ",
+            "name": "접근전 공격",
+            "page": "기본78",
+            "range": "1",
+            "secret": null,
+            "targetSkill": "자유",
+            "type": "공격"
+        },
+        {
+            "awaken": null,
+            "cost": "2",
+            "effect": "라운드 종료 시에 사용할 수 있다. 지정특기 판정에 성공하면, 전장을 원하는 장소로 변경할 수 있다. 같은 라운드에 2사람 이상 【유도】를 실행한 자가 있을 경우, 【유도】 판정의 달성치가 높은 쪽을 우선한다.(달성치가 같은 자가 둘 이상 있을 경우, 효과는 발생하지 않는다.) 또한, 「극지」로 변경한 경우, 곧바로 「극지」의 효과가 발생한다.                           ",
+            "name": "유도",
+            "page": null,
+            "range": "없음",
+            "secret": null,
+            "targetSkill": "주법·예능·결계술",
+            "type": "서포트"
+        },
+        {
+            "awaken": null,
+            "cost": "없음",
+            "effect": "전투 중 전장이 「평지」, 「고소」, 「잡로」였을 경우, 자신의 펌블치가 1 감소하고 그 라운드에 자신이 사용할 수 있는 인법의 코스트 최대치가 2점 상승한다.                           ",
+            "name": "거리침투",
+            "page": null,
+            "range": "없음",
+            "secret": null,
+            "targetSkill": "없음",
+            "type": "장비"
+        },
+        {
+            "awaken": null,
+            "cost": "3",
+            "effect": "전투 중 자신의 차례에 공격하는 대신 사용할 수 있다. 간격 안의 캐릭터 1명을 대상으로 선택한다. 지정특기 판정에 성공하면 대상은 그 전투 동안 온갖 판정에 -1의 수정이 붙고, 판정에서 펌블을 낼 때마다 접근전대미지를 1점 입는다. 이 효과는 누적되지 않는다.                           ",
+            "name": "고통의 밧줄",
+            "page": null,
+            "range": "2",
+            "secret": null,
+            "targetSkill": "포승술",
+            "type": "서포트"
+        },
+        {
+            "awaken": null,
+            "cost": "없음",
+            "effect": "오의 효과 중에서 원하는 것을 2종 고른다. 그 종류의 오의가 사용되었을 때 자신이 오의 깨기 판정을 실행할 경우, +2의 수정이 붙는다. 단, 이 인법을 2개 이상 습득할 경우, 2번째부터는 오의의 종류를 1종밖에 선택할 수 없다.                           ",
+            "name": "박식",
+            "page": null,
+            "range": "없음",
+            "secret": null,
+            "targetSkill": "없음",
+            "type": "장비"
+        }
+    ],
+    "outline": "닌자 유파：상위 계급：중급닌자 사회적 신분：고등학생 신념：아",
+    "personalSecret": [
+        {
+            "effect": null,
+            "fake": null,
+            "name": null,
+            "notes": null,
+            "page": null
+        }
+    ],
+    "personalities": [
+        {
+            "direction": "1",
+            "emotion": "0",
+            "name": null,
+            "place": null,
+            "secret": null,
+            "specialEffect": null
+        }
+    ],
+    "scenario": {
+        "datetime": null,
+        "gamemaster": null,
+        "handout": null,
+        "mission": null,
+        "name": null,
+        "pcno": null
+    },
+    "skills": {
+        "a": null,
+        "d": null,
+        "damage": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "e": null,
+        "f": null,
+        "fixout": null,
+        "outRow": null,
+        "row0": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row1": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row10": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row2": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row3": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row4": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row5": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row6": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row7": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row8": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        },
+        "row9": {
+            "check0": null,
+            "check1": null,
+            "check2": null,
+            "check3": null,
+            "check4": null,
+            "check5": null
+        }
+    },
+    "tekey": {
+        "check": null,
+        "imagelink": null,
+        "includeinfo": null,
+        "includeurl": null,
+        "room": null
+    }
+}
