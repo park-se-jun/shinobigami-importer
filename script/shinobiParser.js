@@ -69,7 +69,9 @@ class AbstractParser {
 class CharacterSheetAppspotParser extends AbstractParser {
     /**@type {CharacterSheetAppspotParser} */
     static instance = null;
+    /**@type {CharacterSheetAppspotData} */
     _data;
+
 
     constructor() {
         super()
@@ -79,18 +81,12 @@ class CharacterSheetAppspotParser extends AbstractParser {
         CharacterSheetAppspotParser.instance = this;
         return this;
     }
-    // parse(json) {
-    //     this._initData(json);
-    //     const shinobiActorData = this._getShinobiActorData();
-    //     const shinobiItemDataArray = this._getShinobiItemData();
-
-
-    // }
 
     /**@override */
     _getShinobiItemData() {
         /**@type {ShinobiItemData[]} */
         let items = [];
+        let dataEditedByKr = (this._data.editlang == "kr");
         for (let ability of this._data.ninpou) {
             if (ability.name == null)
                 continue;
@@ -120,7 +116,7 @@ class CharacterSheetAppspotParser extends AbstractParser {
                 name: background.name,
                 type: "background",
                 data: {
-                    type: (background.type == "長所") ? "pros" : "cons",
+                    type: (background.type == "長所" || background.type == "장점") ? "pros" : "cons",
                     exp: this.#getText(background.point),
                     description: this.#getText(background.effect)
                 }
@@ -149,31 +145,31 @@ class CharacterSheetAppspotParser extends AbstractParser {
 
             if (direction == "1") {
                 if (emotion == "1")
-                    bondData.data.feeling = "1:共感";
+                    bondData.data.feeling = (dataEditedByKr ? "공감" : "1:共感")
                 if (emotion == "2")
-                    bondData.data.feeling = "2:友情";
+                    bondData.data.feeling = (dataEditedByKr ? "우정" : "2:友情");
                 if (emotion == "3")
-                    bondData.data.feeling = "3:愛情";
+                    bondData.data.feeling = (dataEditedByKr ? "애정" : "3:愛情");
                 if (emotion == "4")
-                    bondData.data.feeling = "4:忠誠";
+                    bondData.data.feeling = (dataEditedByKr ? "충성" : "4:忠誠");
                 if (emotion == "5")
-                    bondData.data.feeling = "5:憧憬";
+                    bondData.data.feeling = (dataEditedByKr ? "동경" : "5:憧憬");
                 if (emotion == "6")
-                    bondData.data.feeling = "6:狂信";
+                    bondData.data.feeling = (dataEditedByKr ? "관심" : "6:狂信");
 
             } else {
                 if (emotion == "1")
-                    bondData.data.feeling = "1:不信";
+                    bondData.data.feeling = (dataEditedByKr ? "불신" : "1:不信");
                 if (emotion == "2")
-                    bondData.data.feeling = "2:怒り";
+                    bondData.data.feeling = (dataEditedByKr ? "분노" : "2:怒り");
                 if (emotion == "3")
-                    bondData.data.feeling = "3:妬み";
+                    bondData.data.feeling = (dataEditedByKr ? "질투" : "3:妬み");
                 if (emotion == "4")
-                    bondData.data.feeling = "4:侮蔑";
+                    bondData.data.feeling = (dataEditedByKr ? "모멸" : "4:侮蔑");
                 if (emotion == "5")
-                    bondData.data.feeling = "5:劣等感";
+                    bondData.data.feeling = (dataEditedByKr ? "열등" : "5:劣等感");
                 if (emotion == "6")
-                    bondData.data.feeling = "6:殺意";
+                    bondData.data.feeling = (dataEditedByKr ? "살의" : "6:殺意");
 
             }
 
@@ -183,6 +179,7 @@ class CharacterSheetAppspotParser extends AbstractParser {
     }
     /**@override */
     _getShinobiActorData() {
+        let dataEditedByKr = (this._data.editlang == "kr");
         /**@type ShinobiData */
         let data = {
             // @ts-ignore
@@ -205,31 +202,31 @@ class CharacterSheetAppspotParser extends AbstractParser {
             data.details.grade = this.#getText(this._data.base.level)
 
             if (data.details.agency == "a") {
-                data.details.agency = "斜歯忍軍";
+                data.details.agency = dataEditedByKr ? "하스바 인군" : "斜歯忍軍";
                 data.talent.curiosity = 1;
                 data.talent.gap = { "1": true };
             } else if (data.details.agency == "ab") {
-                data.details.agency = "鞍馬神流"
+                data.details.agency = dataEditedByKr ? "쿠라마 신류" : "鞍馬神流"
                 data.talent.curiosity = 2;
                 data.talent.gap = { "1": true, "2": true };
             }
             else if (data.details.agency == "bc") {
-                data.details.agency = "ハグレモノ"
+                data.details.agency = dataEditedByKr ? "하구레모노" : "ハグレモノ"
                 data.talent.curiosity = 3;
                 data.talent.gap = { "2": true, "3": true };
             }
             else if (data.details.agency == "cd") {
-                data.details.agency = "比良坂機関"
+                data.details.agency = dataEditedByKr ? "히라사카 기관" : "比良坂機関"
                 data.talent.curiosity = 4;
                 data.talent.gap = { "3": true, "4": true };
             }
             else if (data.details.agency == "de") {
-                data.details.agency = "私立御斎学園"
+                data.details.agency = dataEditedByKr ? "사립 오토기 학원" : "私立御斎学園"
                 data.talent.curiosity = 5;
                 data.talent.gap = { "4": true, "5": true };
             }
             else if (data.details.agency == "e") {
-                data.details.agency = "隠忍の血統"
+                data.details.agency = dataEditedByKr ? "오니의 혈통" : "隠忍の血統"
                 data.talent.curiosity = 6;
                 data.talent.gap = { "5": true, "6": true };
             }
@@ -275,7 +272,7 @@ class CharacterSheetAppspotParser extends AbstractParser {
      * @returns {string}
      */
     #getText(data) {
-        return data != null ? data : "";
+        return data != null ? data.trim() : "";
     }
 }
 
@@ -574,5 +571,5 @@ class SeerSuckerV4CsvParser extends AbstractParser {
 }
 
 
-export { AbstractParser, CharacterSheetAppspotParser, SeerSuckerV4CsvParser };
+export { AbstractParser, CharacterSheetAppspotParser as CharacterSheetsAppspotParser, SeerSuckerV4CsvParser };
 
