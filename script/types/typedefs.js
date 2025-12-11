@@ -48,6 +48,14 @@
  * @property {null} ninpou.secret
  * @property {string|null} ninpou.targetSkill
  * @property {string} ninpou.type
+ * @property {object[]} personalities
+ * @property {string} personalities.direction
+ * @property {string} personalities.emotion
+ * @property {null} personalities.name
+ * @property {null} personalities.place
+ * @property {null} personalities.secret
+ * @property {null} personalities.specialEffect
+ * @property {string} [editlang]
  */
 
 
