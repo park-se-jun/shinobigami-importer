@@ -26,6 +26,8 @@
         }
     ],
     "url": "https://github.com/park-se-jun/shinobigami-importer",
+    "menifest": "replaced",
+    "download": "replaced",
     "relationships": {
         "systems": [
             {
