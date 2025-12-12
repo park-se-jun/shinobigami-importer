@@ -3,9 +3,9 @@ import { CharacterSheetsAppspotParser, SeerSuckerV4CsvParser } from "../shinobiP
 
 export class ImportShinobiDialog extends Dialog {
 
-        _loadedData
-        _debounceTimer
-        _html// jQuery html 객체 캐싱
+    _loadedData
+    _debounceTimer
+    _html// jQuery html 객체 캐싱
 
     constructor() {
         // 1. 상태 관리를 위한 변수들을 클래스 인스턴스에 할당
