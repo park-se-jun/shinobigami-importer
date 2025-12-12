@@ -5,7 +5,7 @@
 import { afterAll, beforeAll, describe, expect, test } from '@jest/globals';
 import * as fs from 'node:fs';
 import path from 'node:path';
-import * as Parser from '../script/shinobiParser';
+import * as Parser from '../src/shinobiParser';
 import * as expectedCharacterSheetsDataV11 from './data/characterSheetsAppspot/expectedV11Data';
 import * as expectedSeersucerV4DataV11 from './data/seersuckerV4/expectedV11Data';
 

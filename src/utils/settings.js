@@ -1,0 +1,5 @@
+function registerSettings() {
+
+}
+
+export { registerSettings };

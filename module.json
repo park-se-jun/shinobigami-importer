@@ -1,7 +1,7 @@
 {
     "id": "shinobigami-importer",
-    "title": "shinobigami importer - based on xlsx",
-    "description": "create shinobigami character using xlsx",
+    "title": "shinobigami importer",
+    "description": "create shinobigami character from different source",
     "authors": [
         {
             "name": "sj3003"
@@ -9,14 +9,14 @@
     ],
     "version": "1.0.0",
     "compatibility": {
-        "minimum": "12",
+        "minimum": "11",
         "verified": "12"
     },
-    "scripts": [
-        "scrpts/module.js"
+    "esmodules": [
+        "src/shinobigamiImporter.js"
     ],
-    "style": [
-        "style/*"
+    "styles": [
+        "styles/style.css"
     ],
     "languages": [
         {

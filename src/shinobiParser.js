@@ -1,5 +1,5 @@
 import Papa from "papaparse";
-import { CONSTANTS } from "../constants/constants";
+import { CONSTANTS } from "./constants/constants.js";
 
 /**
 import { countColumn } from '../../../fvtt/data/Data/modules/_CodeMirror/src/util/misc';
