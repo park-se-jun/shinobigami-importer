@@ -24,5 +24,18 @@
             "name": "Korean",
             "path": "lang/ko.json"
         }
-    ]
+    ],
+    "url": "https://github.com/park-se-jun/shinobigami-importer",
+    "relationships": {
+        "systems": [
+            {
+                "id": "shinobigami",
+                "type": "system",
+                "manifest": "https://github.com/ksx0330/FVTT-Shinobigami-System/releases/download/v1.3.8/system.json",
+                "compatibility": {
+                    "verified": "1.3.8"
+                }
+            }
+        ]
+    }
 }
