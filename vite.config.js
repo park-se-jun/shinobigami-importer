@@ -24,7 +24,7 @@ const config = {
             name: "Shinobigami Importer",
             entry: "src/shinobigamiImporter.js",
             formats: ["es"],
-            fileName: "shinobigamiImporter"
+            fileName: "shinobigami-importer"
         }
     },
     esbuild: {
