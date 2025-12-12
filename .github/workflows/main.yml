@@ -43,7 +43,19 @@ jobs:
 
     - run: zip -r ./module.zip module.json dist/ lang/ REAMDME.md
 
-    
+    - name: Update Release with Files
+      id: create_version_release
+      uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: true # Set this to false if you want to prevent updating existing releases
+        name: ${{ github.event.release.name }}
+        draft: ${{ github.event.release.unpublished }}
+        prerelease: ${{ github.event.release.prerelease }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: './module.json, ./module.zip'
+        tag: ${{ github.event.release.tag_name }}
+        body: ${{ github.event.release.body }}
+        
     # - name: Publish FoundryVTT Package
     #   # You may pin to the exact commit or the version.
     #   # uses: cs96and/FoundryVTT-release-package@e27cef796b4dd34493c1bc29e00fc772b89715d6
