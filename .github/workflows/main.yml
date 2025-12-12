@@ -40,7 +40,7 @@ jobs:
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.zip
           esmodules.0: /dist/shinobigami-importer.mjs
 
-      - run: zip -r ./module.zip module.json dist/ lang/ REAMDME.md
+      - run: zip -r ./module.zip module.json dist/ lang/ styles/ REAMDME.md
 
       - name: Update Release with Files
         id: create_version_release
