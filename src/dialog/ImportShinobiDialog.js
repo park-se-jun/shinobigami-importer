@@ -1,3 +1,4 @@
+import { CONSTANTS } from "../constants/constants.js";
 import { CharacterSheetsAppspotParser, SeerSuckerV4CsvParser } from "../shinobiParser.js";
 
 let loadedData = null;
@@ -6,19 +7,21 @@ export class ImportShinobiDialog extends Dialog {
 
     constructor() {
         super({
-            title: "import shinobi",
+            title: "난자가져오기",
             content: content,
             buttons: {
                 one: {
-                    label: "",
+                    label: "가져오기",
                     callback: async (html, e) => {
-                        if (!loadedData) {
+                        console.log("버튼이 눌렸어용")
+                        console.log(loadedData)
+                        if (loadedData) {
                             const [shinobiActorData, shinobiItemDataArray] = loadedData;
                             const actor = await Actor.create(shinobiActorData);
                             await actor.createEmbeddedDocuments('Item', shinobiItemDataArray, {});
                         }
                     },
-
+                    disabled: true
                 }
             },
             close: (html) => { loadedData = null },
@@ -58,6 +61,7 @@ export class ImportShinobiDialog extends Dialog {
                     buttonDisable(true);
 
                     debounceTimer = setTimeout(() => {
+                        console.log("디바운서 타이머")
                         importShinobi(url, dataSource);
                     }, 800);
                 }
@@ -68,17 +72,33 @@ export class ImportShinobiDialog extends Dialog {
                  */
                 async function importShinobi(url, dataSource) {
                     try {
-                        const response = await fetch(url);
-                        const data = await response.text();
                         let parser;
+                        
                         switch (dataSource) {
                             case "appspot.com":
+                                console.log(`${CONSTANTS.MODULE_ID}| appspot 통신 시작`)
+                                 const appspotData= await $.ajax({
+                                    type: "GET",
+                                    url: url,
+                                    dataType: 'jsonp',
+                                    data:{base64Image:1}
+                                });
                                 parser = new CharacterSheetsAppspotParser();
-                                loadedData = parser.parse(JSON.parse(data));
+                                loadedData = parser.parse(appspotData);
+
                                 break;
                             case "seersuckerV4":
+                                console.log(`${CONSTANTS.MODULE_ID}| 시어서커 구글독 통신 시작`)
                                 parser = new SeerSuckerV4CsvParser();
-                                loadedData = parser.parse(data);
+                                const seersuckerV4Data = await $.ajax({
+                                    type: "GET",
+                                    url: url,
+                                    dataType: 'text',
+                                    data:{base64Image:1},
+                                });
+                                console.log(seersuckerV4Data);
+                                loadedData = parser.parse(seersuckerV4Data);
+                                console.log(loadedData);
                                 break;
                         }
                         renderSuccess(loadedData);
@@ -99,7 +119,7 @@ export class ImportShinobiDialog extends Dialog {
                 }
 
                 function getDataSourceElement() {
-                    return html.find("data-source");
+                    return html.find("#data-source");
                 }
 
                 function getUrlInputElement() {
@@ -148,14 +168,24 @@ export class ImportShinobiDialog extends Dialog {
                 function renderSuccess(data) {
                     const [actorData, ItemDataArray] = data;
                     previewAreaElement.attr('has-data'); // 클래스 초기화
-
-
+                    const shinobiName = actorData.name != "" ? actorData.name: "이름이 없습니다"
+                    let agency;
+                    let biography;
+                    if(Number(game.version.split(".")[0]) >=12){
+                        console.log(`${CONSTANTS.MODULE_ID}| v12`)
+                        agency = actorData.system.details.agency != ""? actorData.system.details.agency: "소속이 없습니다";
+                        biography = actorData.system.details.biography != "" ? actorData.system.details.biography: "백스토리가 없습니다";
+                    }else{
+                        console.log(`${CONSTANTS.MODULE_ID}| v11`)
+                        agency = actorData.data.details.agency != ""? actorData.data.details.agency: "소속이 없습니다";
+                        biography = actorData.data.details.biography != "" ? actorData.data.details.biography: "백스토리가 없습니다";
+                    }
                     previewAreaElement.html(
                         `<div class="preview-content">
-                    ${imageHtml}
-                    <h4 class="preview-title">${data.title}</h4>
-                    <p class="preview-desc">${data.description}</p>
-                    <span class="preview-badge">${data.type}</span>
+                    <h4 class="preview-name">${shinobiName}</h4>
+                    <span class="preview-agency">${agency}</span>
+                    <p class="preview-desc">${biography}</p>
+
                 </div>`);
                 }
 
@@ -207,9 +237,9 @@ const content =
         /* 미리보기 콘텐츠 스타일 */
         .preview-content { width: 100%; text-align: left; }
         .preview-img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; margin-bottom: 12px; }
-        .preview-title { font-weight: bold; color: #1f2937; margin-bottom: 4px; font-size: 16px; }
+        .preview-name { font-weight: bold; color: #1f2937; margin-bottom: 4px; font-size: 16px; }
         .preview-desc { font-size: 13px; color: #4b5563; margin-bottom: 8px; line-height: 1.4; }
-        .preview-badge { display: inline-block; padding: 2px 8px;  color: #1e40af; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase; }
+        .preview-agency { display: inline-block; padding: 2px 8px;  color: #1e40af; border-radius: 4px; font-size: 11px; font-weight: bold; text-transform: uppercase; }
 
         /* 로딩 스피너 */
         .spinner {
