@@ -15,7 +15,7 @@
 
 다음의 링크를 FoundryVTT 모듈 설치 항복에 붙여넣어주세요.
 
-https://github/park-se-jun/shinobigami-importer/releases/latest/download/module.json
+https://github.com/park-se-jun/shinobigami-importer/releases/latest/download/module.json
 
 ## usage
 
