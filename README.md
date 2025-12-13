@@ -28,8 +28,8 @@ https://github.com/park-se-jun/shinobigami-importer/releases/latest/download/mod
 
 https://github.com/user-attachments/assets/88abaddd-112c-47f2-a020-3d2890f9deec
 
-
 ### character-sheets.appsot.com
+key에 해당하는 부분만 url에 작성하면 됩니다.
 
 [character-sheets.appspot.com](https://character-sheets.appspot.com/shinobigami/)에서 불러오는 내용은 다음과 같습니다.
 
@@ -50,6 +50,8 @@ https://github.com/user-attachments/assets/88abaddd-112c-47f2-a020-3d2890f9deec
 - 일반인 여부
 
 ### 시노비가미 자동화 시트 4.0 By 시어서커(Seersucker_f)
+
+구글드라이브 -> 파일 -> 공유 -> 웹에 게시 -> 시트선택 -> .csv -> 게시하기를 한 후 나오는 url을 붙여넣어주시면 됩니다.
 
 [시노비가미 자동화 시트 4.0 By 시어서커(Seersucker_f)](https://docs.google.com/spreadsheets/d/1bjkyWRSlkEWw2xM_YuzlLXJbcFOq_2r3zyY-Mk-Jo20/edit?gid=2029654248#gid=2029654248)에서 불러오는 내용은 다음과 같습니다.
 
