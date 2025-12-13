@@ -25,6 +25,10 @@ https://github.com/park-se-jun/shinobigami-importer/releases/latest/download/mod
 3. 해당하는 값을 입력하세요.
 4. 가져오기를 누르세요
 
+
+https://github.com/user-attachments/assets/88abaddd-112c-47f2-a020-3d2890f9deec
+
+
 ### character-sheets.appsot.com
 
 [character-sheets.appspot.com](https://character-sheets.appspot.com/shinobigami/)에서 불러오는 내용은 다음과 같습니다.
