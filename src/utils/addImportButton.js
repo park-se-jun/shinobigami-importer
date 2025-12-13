@@ -7,7 +7,12 @@ import { ImportShinobiDialog } from "../dialog/ImportShinobiDialog.js";
  * @param {JQuery<HTMLElement>} html 
  */
 export function addImportButton(app, html) {
-    const $button = $("<button>").addClass("shinobi-import-button").append(`<span>닌자 가져오기</span>`).on("click",(e)=>{
+
+    // @ts-ignore
+    const isGmOnly = game.settings?.get(CONSTANTS.MODULE_ID, "gmOnly")
+    if (isGmOnly && !game.user?.isGM) return;
+
+    const $button = $("<button>").addClass("shinobi-import-button").append(`<span>닌자 가져오기</span>`).on("click", (e) => {
         console.log(`${CONSTANTS.MODULE_ID}| 버튼이 클릭되었습니다`);
         // e.preventDefault();
 
