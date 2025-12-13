@@ -2,7 +2,7 @@ import { CONSTANTS } from "../constants/constants.js";
 import { CharacterSheetsAppspotParser, SeerSuckerV4CsvParser } from "../shinobiParser.js";
 
 export class ImportShinobiDialog extends Dialog {
-
+    /**@type {[ShinobiActorData,ShinobiItemData[]]|null} */
     _loadedData
     _debounceTimer
     _html// jQuery html 객체 캐싱
@@ -47,6 +47,7 @@ export class ImportShinobiDialog extends Dialog {
         // 이벤트 리스너 등록
         urlInput.on('keyup change', () => this._handleInputChange());
         dataSource.on('change', () => this._handleInputChange());
+        dataSource.on('change ', () => this._updatePlaceholder())
     }
 
     /**
@@ -73,6 +74,17 @@ export class ImportShinobiDialog extends Dialog {
         }, 800);
     }
 
+    _updatePlaceholder() {
+        const source = this._html.find("#data-source").val();
+        switch (source) {
+            case "appspot.com":
+                this._html.find("#url-input").attr("placeholder", "[key값만 입력해주세요]");
+                break;
+            case "seersuckerV4":
+                this._html.find("#url-input").attr("placeholder", "[구글드라이브-> 파일-> 공유-> 웹에 게시-> .csv]");
+                break;
+        }
+    }
     /**
      * 실제 데이터를 통신하고 파싱하는 로직
      */
@@ -85,8 +97,9 @@ export class ImportShinobiDialog extends Dialog {
 
             // 소스에 따른 분기 처리
             if (dataSource === "appspot.com") {
+                const baseUrl = "https://character-sheets.appspot.com/shinobigami/display?ajax=1&key=";
                 rawData = await $.ajax({
-                    type: "GET", url: url, dataType: 'jsonp', data: { base64Image: 1 }
+                    type: "GET", url: baseUrl + url, dataType: 'jsonp', data: { base64Image: 1 }
                 });
                 parser = new CharacterSheetsAppspotParser();
             }
@@ -123,6 +136,11 @@ export class ImportShinobiDialog extends Dialog {
             const actor = await Actor.create(shinobiActorData);
             // @ts-ignore
             await actor.createEmbeddedDocuments('Item', shinobiItemDataArray, {});
+            let dataForUpdateTalent = {};
+            dataForUpdateTalent['data.talent.table.0.0.state'] = shinobiActorData.data ? shinobiActorData.data.talent.table[0][0].state : undefined;
+            dataForUpdateTalent['system.talent.table.0.0.state'] = shinobiActorData.system ? shinobiActorData.system.talent.table[0][0].state : undefined;
+            // @ts-ignore
+            await actor.update(dataForUpdateTalent);
             ui.notifications.info(`${actor.name} 가져오기 성공!`);
         } catch (err) {
             ui.notifications.error(`생성 실패: ${err.message}`);
@@ -212,7 +230,7 @@ const content = `
         </div>
         <div class="form-group">
             <label class="form-label">URL 주소</label>
-            <input type="text" id="url-input" class="input-control" placeholder="https://example.com" autocomplete="off">
+            <input type="text" id="url-input" class="input-control" placeholder="[key값만 입력해주세요]" autocomplete="off">
         </div>
         <div id="preview-area">
             </div>
