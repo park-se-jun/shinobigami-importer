@@ -10,6 +10,7 @@
 ## caution
 
 시노비가미 시스템은 현재 공식적인 v12 지원이 없습니다. v11에서도 동작하도록 작성하긴 했으나 버그가 발생할 수 있으니 버그가 발생한다면 이슈 발행 부탁드립니다.
+시어서커님 자동화시트의 경우 셀 병합이 달라지면 데이터가 깨질 수 있으니 되도록 원본에서 내용만 채워서 사용해 주세요
 
 ## Installation
 
@@ -63,3 +64,7 @@ https://github.com/park-se-jun/shinobigami-importer/releases/latest/download/mod
 - 배경
 - 오의
 - 닌구
+
+## bug report/fix
+
+본 저장소에 풀리퀘스트를 열거나 이슈를 생성해 주세요
