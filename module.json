@@ -23,6 +23,11 @@
             "lang": "ko",
             "name": "Korean",
             "path": "lang/ko.json"
+        },
+        {
+            "lang": "ja",
+            "name": "Japan",
+            "path": "lang/ja.json"
         }
     ],
     "url": "https://github.com/park-se-jun/shinobigami-importer",
