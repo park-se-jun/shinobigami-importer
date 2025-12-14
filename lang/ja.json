@@ -17,6 +17,8 @@
     "ShinobigamiImporter.dialog.dataSource.appspot.placeholder": "[key値のみを入力してください]",
     "ShinobigamiImporter.settings.gmOnly.name": "GM only",
     "ShinobigamiImporter.settings.gmOnly.hint": "gmだけ忍者を呼び出すことができます",
+    "ShinobigamiImporter.settings.dataSource.name": "データソース",
+    "ShinobigamiImporter.settings.dataSource.hint": "データソースを確認してください。",
     "ShinobigamiImporter.parser.seersuckerV4.none": "なし",
     "ShinobigamiImporter.parser.seersuckerV4.strength": "強み",
     "ShinobigamiImporter.parser.seersuckerV4.weakness": "弱み",
