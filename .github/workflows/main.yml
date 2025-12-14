@@ -1,14 +1,16 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Release
+name: Prerelese
 
 on:
   release:
-    types: [published]
+    types: [prereleased, released]
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     strategy:
       matrix:
@@ -55,11 +57,11 @@ jobs:
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
 
-    # - name: Publish FoundryVTT Package
-    #   # You may pin to the exact commit or the version.
-    #   # uses: cs96and/FoundryVTT-release-package@e27cef796b4dd34493c1bc29e00fc772b89715d6
-    #   uses: cs96and/FoundryVTT-release-package@v1.0.3
-    #   with:
-    #     package-token: ${{ secrets.PACKAGE_TOKEN }}
-    #     manifest-url: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.json
-    #     notes-url: https://github.com/${{github.repository}}/releases/tag/${{github.event.release.tag_name}}/package-token
+      - name: Publish FoundryVTT Package
+        # 프리릴리즈가 아닐 때(즉, 정식 릴리즈일 때)만 실행
+        if: github.event.release.prerelease == false
+        uses: cs96and/FoundryVTT-release-package@v1.0.3
+        with:
+          package-token: ${{ secrets.PACKAGE_TOKEN }}
+          manifest-url: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.json
+          notes-url: https://github.com/${{github.repository}}/releases/tag/${{github.event.release.tag_name}}
