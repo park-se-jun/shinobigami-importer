@@ -1,3 +1,55 @@
 {
-    "SHINOBIGAMI-IMPORTER": {}
+    "ShinobigamiImporter": {
+        "error": {
+            "basic": "오류 발생",
+            "unknown": "알 수 없는 오류가 발생했습니다"
+        },
+        "importShinobi": "닌자 가져오기",
+        "success": "성공",
+        "fail": "실패",
+        "dialog": {
+            "preview": {
+                "placeholder": "url을 입력하면 미리보기가 표시됩니다.",
+                "data": {
+                    "loading": "데이터 불러오는 중...",
+                    "loadingFail": "데이터를 불러오지 못했습니다.",
+                    "noName": "이름이 없습니다",
+                    "noAgency": "소속이 없습니다",
+                    "noBiography": "백스토리가 없습니다"
+                }
+            },
+            "dataSource": {
+                "title": "리소스 출처",
+                "seersuckerV4": {
+                    "name": "시노비가미 자동화시트 v4.0 By Seersucker_f",
+                    "placeholder": "[구글드라이브-> 파일-> 공유-> 웹에 게시-> .csv]"
+                },
+                "appspot": {
+                    "name": "character-sheets.appspot.com",
+                    "placeholder": "[key값만 입력해주세요]"
+                }
+            }
+        },
+        "settings": {
+            "gmOnly": {
+                "name": "GM only",
+                "hint": "gm만 닌자를 불러올 수 있습니다."
+            }
+        },
+        "parser": {
+            "seersuckerV4": {
+                "none": "없음",
+                "strength": "강점",
+                "weakness": "약점",
+                "curiosity": {
+                    "1": "기술",
+                    "2": "체술",
+                    "3": "인술",
+                    "4": "모술",
+                    "5": "전술",
+                    "6": "요술"
+                }
+            }
+        }
+    }
 }

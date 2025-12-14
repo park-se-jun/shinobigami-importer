@@ -1,5 +1,6 @@
 import { CONSTANTS } from "../constants/constants.js";
 import { ImportShinobiDialog } from "../dialog/ImportShinobiDialog.js";
+import { localize } from "./localize.js";
 
 /**
  * 
@@ -12,15 +13,18 @@ export function addImportButton(app, html) {
     const isGmOnly = game.settings?.get(CONSTANTS.MODULE_ID, "gmOnly")
     if (isGmOnly && !game.user?.isGM) return;
 
-    const $button = $("<button>").addClass("shinobi-import-button").append(`<span>닌자 가져오기</span>`).on("click", (e) => {
-        console.log(`${CONSTANTS.MODULE_ID}| 버튼이 클릭되었습니다`);
-        // e.preventDefault();
+    const $button = $("<button>")
+        .addClass("shinobi-import-button")
+        .append(`<span>${localize("ShinobigamiImporter.importShinobi")}</span>`)
+        .on("click", (e) => {
+            console.log(`${CONSTANTS.MODULE_ID}| button clicked`);
+            // e.preventDefault();
 
-        const newDialog = new ImportShinobiDialog();
-        console.log("다이얼로그 생성")
-        console.log(newDialog);
-        newDialog.render(true);
-    });
+            const newDialog = new ImportShinobiDialog();
+            console.log("create dialog")
+            console.log(newDialog);
+            newDialog.render(true);
+        });
     const $actorTabHeader = html.find(".directory-header");
     $actorTabHeader.append($button)
 }

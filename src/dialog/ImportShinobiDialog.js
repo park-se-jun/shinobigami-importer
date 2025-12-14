@@ -1,5 +1,6 @@
 import { CONSTANTS } from "../constants/constants.js";
 import { CharacterSheetsAppspotParser, SeerSuckerV4CsvParser } from "../shinobiParser.js";
+import { localize } from "../utils/localize.js";
 
 export class ImportShinobiDialog extends Dialog {
     /**@type {[ShinobiActorData,ShinobiItemData[]]|null} */
@@ -10,11 +11,11 @@ export class ImportShinobiDialog extends Dialog {
     constructor() {
         // 1. 상태 관리를 위한 변수들을 클래스 인스턴스에 할당
         const conf = {
-            title: "난자가져오기",
-            content: content,
+            title: localize("ShinobigamiImporter.importShinobi"),
+            content: "",
             buttons: {
                 one: {
-                    label: "가져오기",
+                    label: localize("ShinobigamiImporter.importShinobi"),
                     callback: async () => this._onImportClick(),
                     disabled: true
                 }
@@ -26,7 +27,7 @@ export class ImportShinobiDialog extends Dialog {
         };
 
         super(conf);
-
+        this.data.content = this._content;
         // 클래스 필드로 상태 관리 (동시성 문제 해결)
         this._loadedData = null;
         this._debounceTimer = null;
@@ -78,10 +79,10 @@ export class ImportShinobiDialog extends Dialog {
         const source = this._html.find("#data-source").val();
         switch (source) {
             case "appspot.com":
-                this._html.find("#url-input").attr("placeholder", "[key값만 입력해주세요]");
+                this._html.find("#url-input").attr("placeholder", localize("ShinobigamiImporter.dialog.dataSource.appspot.placeholder"));
                 break;
             case "seersuckerV4":
-                this._html.find("#url-input").attr("placeholder", "[구글드라이브-> 파일-> 공유-> 웹에 게시-> .csv]");
+                this._html.find("#url-input").attr("placeholder", localize("ShinobigamiImporter.dialog.dataSource.seersuckerV4.placeholder"));
                 break;
         }
     }
@@ -141,7 +142,7 @@ export class ImportShinobiDialog extends Dialog {
             dataForUpdateTalent['system.talent.table.0.0.state'] = shinobiActorData.system ? shinobiActorData.system.talent.table[0][0].state : undefined;
             // @ts-ignore
             await actor.update(dataForUpdateTalent);
-            ui.notifications.info(`${actor.name} 가져오기 성공!`);
+            ui.notifications.info(`${actor.name} ${localize("ShinobigamiImpoarter.importShinobi")} ${localize("ShinobigamiImpoarte.success")}`);
         } catch (err) {
             ui.notifications.error(`생성 실패: ${err.message}`);
         }
@@ -160,22 +161,22 @@ export class ImportShinobiDialog extends Dialog {
                 <line x1="16" y1="17" x2="8" y2="17"></line>
                 <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
-            <span style="font-size: 13px;">URL을 입력하면 미리보기가 표시됩니다.</span>
+            <span style="font-size: 13px;">${localize("ShinobigamiImporter.dialog.preview.placeholder")}</span>
         `, ''); // 클래스 제거
     }
 
     _renderLoading() {
         this._updatePreviewContent(`
             <div class="spinner"></div>
-            <span style="font-size: 13px; color: #3b82f6; font-weight: 500;">데이터 불러오는 중...</span>
+            <span style="font-size: 13px; color: #3b82f6; font-weight: 500;">${localize("ShinobigamiImporter.dialog.preview.data.loading")}</span>
         `, '');
     }
 
     _renderError(msg) {
         this._updatePreviewContent(`
-            <span style="font-weight: bold; font-size: 14px; margin-bottom: 4px;">오류 발생</span>
+        <span style = "font-weight: bold; font-size: 14px; margin-bottom: 4px;" > ${localize("ShinobigamiImporter.error.basic")}</span >
             <span style="font-size: 12px;">${msg}</span>
-        `, 'error');
+`, 'error');
     }
 
     _renderSuccess(data) {
@@ -183,17 +184,17 @@ export class ImportShinobiDialog extends Dialog {
         const system = actorData.system || actorData.data; // V10~V12 호환성 확보 (system 권장)
         const details = system?.details || {};
 
-        const name = actorData.name || "이름이 없습니다";
-        const agency = details.agency || "소속이 없습니다";
-        const biography = details.biography || "백스토리가 없습니다";
+        const name = actorData.name || localize("ShinobigamiImporter.dialog.preview.data.noName");
+        const agency = details.agency || localize("ShinobigamiImporter.dialog.preview.data.noAgency");
+        const biography = details.biography || localize("ShinobigamiImporter.dialog.preview.data.noBiography");
 
         const htmlContent = `
-            <div class="preview-content">
+            <div class="preview-content" >
                 <h4 class="preview-name">${name}</h4>
                 <span class="preview-agency">${agency}</span>
                 <p class="preview-desc">${biography}</p>
-            </div>
-        `;
+            </div >
+    `;
         this._updatePreviewContent(htmlContent, 'has-data');
     }
 
@@ -213,27 +214,28 @@ export class ImportShinobiDialog extends Dialog {
         btn.prop('disabled', isDisabled);
         // 또는 this._html.parent().find(...) 를 사용해야 할 수도 있음 (Dialog 구조상)
     }
+
+
+    _content =
+        `<div class="dialog-box" >
+        <div class="dialog-body">
+            <div class="form-group">
+                <label class="form-label">${localize("ShinobigamiImporter.dialog.dataSource.title")}</label>
+                <div style="position: relative;">
+                    <select id="data-source" class="select-control">
+                        <option value="appspot.com">${localize("ShinobigamiImporter.dialog.dataSource.appspot.name")}</option>
+                        <option value="seersuckerV4">${localize("ShinobigamiImporter.dialog.dataSource.seersuckerV4.name")}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">URL</label>
+                <input type="text" id="url-input" class="input-control" placeholder="${localize("ShinobigamiImporter.dialog.dataSource.appspot.placeholder")}" autocomplete="off">
+            </div>
+            <div id="preview-area">
+            </div>
+        </div>
+    </div >`
 }
 
 // HTML 템플릿은 그대로 유지 (가독성을 위해 파일 하단에 두거나 별도 파일로 분리 추천)
-const content = `
-<div class="dialog-box">
-    <div class="dialog-body">
-        <div class="form-group">
-            <label class="form-label">리소스 출처</label>
-            <div style="position: relative;">
-                <select id="data-source" class="select-control">
-                    <option value="appspot.com">character-sheets.appspot.com</option>
-                    <option value="seersuckerV4">시어서커님 배포 자동화시트 v4 </option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="form-label">URL 주소</label>
-            <input type="text" id="url-input" class="input-control" placeholder="[key값만 입력해주세요]" autocomplete="off">
-        </div>
-        <div id="preview-area">
-            </div>
-    </div>
-</div>
-`;
