@@ -8,6 +8,7 @@ const config = {
         port: 30001,
         open: '/game',
         proxy: {
+            '^(/modules/shinobigami-importer/(assets|lang|style.css))': 'http://localhost:30000',
             '^(?!/modules/shinobigami-importer)': 'http://localhost:30000',
             '/socket.io': {
 

@@ -1,5 +1,6 @@
 import Papa from "papaparse";
 import { CONSTANTS } from "./constants/constants.js";
+import { localize } from "./utils/localize.js";
 
 /**
 import { countColumn } from '../../../fvtt/data/Data/modules/_CodeMirror/src/util/misc';
@@ -20,7 +21,7 @@ class AbstractParser {
     _data;
     constructor() {
         if (this.constructor === AbstractParser) {
-            throw new Error("추상클래스 입니다");
+            throw new Error("this class is bbstract class");
         }
         this._curFvttVersion = Number(game.version.split('.')[0])
     }
@@ -46,14 +47,14 @@ class AbstractParser {
         return [shinobiActorData, shinobiItemDataArray];
     }
     _initData(data) {
-        throw new Error("_initData(data)추상메소드 입니다");
+        throw new Error("_initData(data) is abstract method");
     }
     /**
      * @abstract
      * @returns {ShinobiItemData[]}
      */
     _getShinobiItemData() {
-        throw new Error("_getShinobiItemData() : 추상메소드 입니다");
+        throw new Error("_getShinobiItemData() : is abstract method");
     }
 
     /**
@@ -62,7 +63,7 @@ class AbstractParser {
      */
     _getShinobiActorData() {
 
-        throw new Error("_getShinobiActorData() : 추상메소드 입니다");
+        throw new Error("_getShinobiActorData() : is abstract method");
     }
 }
 
@@ -145,31 +146,31 @@ class CharacterSheetsAppspotParser extends AbstractParser {
 
             if (direction == "1") {
                 if (emotion == "1")
-                    bondData.data.feeling = (dataEditedByKr ? "공감" : "1:共感")
+                    bondData.data.feeling = (dataEditedByKr ? "1:공감" : "1:共感")
                 if (emotion == "2")
-                    bondData.data.feeling = (dataEditedByKr ? "우정" : "2:友情");
+                    bondData.data.feeling = (dataEditedByKr ? "2:우정" : "2:友情");
                 if (emotion == "3")
-                    bondData.data.feeling = (dataEditedByKr ? "애정" : "3:愛情");
+                    bondData.data.feeling = (dataEditedByKr ? "3:애정" : "3:愛情");
                 if (emotion == "4")
-                    bondData.data.feeling = (dataEditedByKr ? "충성" : "4:忠誠");
+                    bondData.data.feeling = (dataEditedByKr ? "4:충성" : "4:忠誠");
                 if (emotion == "5")
-                    bondData.data.feeling = (dataEditedByKr ? "동경" : "5:憧憬");
+                    bondData.data.feeling = (dataEditedByKr ? "5:동경" : "5:憧憬");
                 if (emotion == "6")
-                    bondData.data.feeling = (dataEditedByKr ? "관심" : "6:狂信");
+                    bondData.data.feeling = (dataEditedByKr ? "6:관심" : "6:狂信");
 
             } else {
                 if (emotion == "1")
-                    bondData.data.feeling = (dataEditedByKr ? "불신" : "1:不信");
+                    bondData.data.feeling = (dataEditedByKr ? "1:불신" : "1:不信");
                 if (emotion == "2")
-                    bondData.data.feeling = (dataEditedByKr ? "분노" : "2:怒り");
+                    bondData.data.feeling = (dataEditedByKr ? "2:분노" : "2:怒り");
                 if (emotion == "3")
-                    bondData.data.feeling = (dataEditedByKr ? "질투" : "3:妬み");
+                    bondData.data.feeling = (dataEditedByKr ? "3:질투" : "3:妬み");
                 if (emotion == "4")
-                    bondData.data.feeling = (dataEditedByKr ? "모멸" : "4:侮蔑");
+                    bondData.data.feeling = (dataEditedByKr ? "4:모멸" : "4:侮蔑");
                 if (emotion == "5")
-                    bondData.data.feeling = (dataEditedByKr ? "열등" : "5:劣等感");
+                    bondData.data.feeling = (dataEditedByKr ? "5:열등" : "5:劣等感");
                 if (emotion == "6")
-                    bondData.data.feeling = (dataEditedByKr ? "살의" : "6:殺意");
+                    bondData.data.feeling = (dataEditedByKr ? "6:살의" : "6:殺意");
 
             }
 
@@ -318,11 +319,11 @@ class SeerSuckerV4CsvParser extends AbstractParser {
             }
             const finishTalent = this.#getDataAt(13 + i * 9 + 1, 46);
             const finishType = this.#getDataAt(13 + i * 9 + 2, 46);
-            const finishStrong = this.#getDataAt(13 + i * 9 + 3, 45) != "" ? this.#getDataAt(13 + i * 9 + 3, 45) : "없음";
-            const finishWeek = this.#getDataAt(13 + i * 9 + 3, 49) != "" ? this.#getDataAt(13 + i * 9 + 3, 49) : "없음";
+            const finishStrong = this.#getDataAt(13 + i * 9 + 3, 45) != "" ? this.#getDataAt(13 + i * 9 + 3, 45) : localize("ShinobigamiImpoarter.parser.seersuckerV4.none");
+            const finishWeek = this.#getDataAt(13 + i * 9 + 3, 49) != "" ? this.#getDataAt(13 + i * 9 + 3, 49) : localize("ShinobigamiImpoarter.parser.seersuckerV4.none");
             const finishDescription =
-                `<b>강점:</b> ${finishStrong} <br>
-            <b>약점:</b> ${finishWeek} <br>
+                `<b>${localize("ShinobigamiImpoarter.parser.seersuckerV4.strength")}:</b> ${finishStrong} <br>
+            <b>${localize("ShinobigamiImpoarter.parser.seersuckerV4.weakness")}:</b> ${finishWeek} <br>
             ${this.#getDataAt(13 + i * 9 + 4, 46)}`
             finishes.push({
                 name: finishName,
@@ -478,22 +479,22 @@ class SeerSuckerV4CsvParser extends AbstractParser {
         let curiosity = this.#getDataAt(21, 13);
         let curiosityCode = 0;
         switch (curiosity) {
-            case "기술":
+            case localize("ShinobigamiImpoarter.parser.seersuckerV4.curiosity.1"):
                 curiosityCode = 1;
                 break;
-            case "체술":
+            case localize("ShinobigamiImpoarter.parser.seersuckerV4.curiosity.2"):
                 curiosityCode = 2;
                 break;
-            case "인술":
+            case localize("ShinobigamiImpoarter.parser.seersuckerV4.curiosity.3"):
                 curiosityCode = 3;
                 break;
-            case "모술":
+            case localize("ShinobigamiImpoarter.parser.seersuckerV4.curiosity.4"):
                 curiosityCode = 4;
                 break;
-            case "전술":
+            case localize("ShinobigamiImpoarter.parser.seersuckerV4.curiosity.5"):
                 curiosityCode = 5;
                 break;
-            case "요술":
+            case localize("ShinobigamiImpoarter.parser.seersuckerV4.curiosity.6"):
                 curiosityCode = 6;
                 break;
             default:
