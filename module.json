@@ -21,13 +21,18 @@
     "languages": [
         {
             "lang": "ko",
-            "name": "Korean",
+            "name": "한국어",
             "path": "lang/ko.json"
         },
         {
             "lang": "ja",
-            "name": "Japan",
+            "name": "日本語",
             "path": "lang/ja.json"
+        },
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
         }
     ],
     "url": "https://github.com/park-se-jun/shinobigami-importer",
