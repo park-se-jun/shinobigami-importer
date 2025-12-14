@@ -25,8 +25,10 @@ export class ImportShinobiDialog extends Dialog {
             // 렌더링 시 실행할 메서드 연결
             render: (html) => this._onRender(html)
         };
-
-        super(conf);
+        const dialogSize = {
+            width: 500,
+        }
+        super(conf, dialogSize);
         this.data.content = this._content;
         // 클래스 필드로 상태 관리 (동시성 문제 해결)
         this._loadedData = null;
