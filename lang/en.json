@@ -17,6 +17,8 @@
     "ShinobigamiImporter.dialog.dataSource.appspot.placeholder": "[Please enter only the key value]",
     "ShinobigamiImporter.settings.gmOnly.name": "GM only",
     "ShinobigamiImporter.settings.gmOnly.hint": "Only GM can import shinobi",
+    "ShinobigamiImporter.settings.dataSource.name": "Data source",
+    "ShinobigamiImporter.settings.dataSource.hint": "Check Data source",
     "ShinobigamiImporter.parser.seersuckerV4.none": "none",
     "ShinobigamiImporter.parser.seersuckerV4.strength": "strength",
     "ShinobigamiImporter.parser.seersuckerV4.weakness": "weakness",
