@@ -1,5 +1,7 @@
 # Shinobigami Importer
 
+[jp](README/README.ja.md)|[kr](README.md)|[en](README/README.en.md)
+
 시노비가미 임포터는 다른 곳에서 작성한 캐릭터를 [foundryVTT 시노비가미 시스템](https://foundryvtt.com/packages/shinobigami)에 불러올 수 있도록 도와주는 모듈입니다.
 
 현재 지원하고 있는 데이터 소스는 다음과 같습니다.
@@ -14,7 +16,7 @@
 
 ## Installation
 
-다음의 링크를 FoundryVTT 모듈 설치 항복에 붙여넣어주세요.
+다음의 링크를 FoundryVTT 모듈 설치 항목에 붙여넣어주세요.
 
 https://github.com/park-se-jun/shinobigami-importer/releases/latest/download/module.json
 
@@ -23,18 +25,19 @@ https://github.com/park-se-jun/shinobigami-importer/releases/latest/download/mod
 1. Actor 탭의 '닌자 가져오기(import shinobi)' 버튼을 누르세요
 2. 불러오려는 데이터 소스를 고르세요
 3. 해당하는 값을 입력하세요.
-4. 가져오기를 누르세요
-
+4. 닌자 가져오기를 누르세요
 
 https://github.com/user-attachments/assets/88abaddd-112c-47f2-a020-3d2890f9deec
 
 ### character-sheets.appsot.com
+
 key에 해당하는 부분만 url에 작성하면 됩니다.
 
 [character-sheets.appspot.com](https://character-sheets.appspot.com/shinobigami/)에서 불러오는 내용은 다음과 같습니다.
 
 - 이름
 - 성별
+- 나이
 - 유파
 - 계급
 - 법식
@@ -46,7 +49,6 @@ key에 해당하는 부분만 url에 작성하면 됩니다.
 - 인법
 - 인물
 - 배경
-- 공적 내역
 - 일반인 여부
 
 ### 시노비가미 자동화 시트 4.0 By 시어서커(Seersucker_f)
@@ -57,6 +59,7 @@ key에 해당하는 부분만 url에 작성하면 됩니다.
 
 - 이름
 - 성별
+- 나이
 - 유파
 - 계급
 - 법식
@@ -66,7 +69,6 @@ key에 해당하는 부분만 url에 작성하면 됩니다.
 - 공적점
 - 백스토리
 - 인법
-- 인물
 - 배경
 - 오의
 - 닌구
