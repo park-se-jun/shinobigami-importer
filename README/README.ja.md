@@ -1,7 +1,9 @@
 # Shinobigami Importer
 
 <div align="center">
+
 [jp](README.ja.md) | [kr](../README.md) | [en](README.en.md)
+
 </div>
 
 シノビガミインポーターは、他の場所で作成したキャラクターを[「foundryVTT シノビガミシステム」](https://foundryvtt.com/packages/shinobigami)に読み込むのに役立つモジュールです。
