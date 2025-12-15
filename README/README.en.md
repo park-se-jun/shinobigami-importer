@@ -1,6 +1,8 @@
 # Shinobigami Importer
 
-[jp](README/README.ja.md)|[kr](README.md)|[en](README/README.en.md)
+<div align="center">
+[jp](README.ja.md) | [kr](../README.md) | [en](README.en.md)
+</div>
 
 The Shinobigami Importer module allows you to import characters created elsewhere into the [foundryVTT Shinobigami System](https://foundryvtt.com/packages/shinobigami).
 
